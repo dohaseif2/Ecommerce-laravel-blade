@@ -61,7 +61,7 @@
                 <div class="col-lg-4 col-md-6 text-center">
 					<div class="single-product-item">
 						<div class="product-image">
-							<a href="single-product.html"><img src="assets/img/products/product-img-1.jpg" alt=""></a>
+							<a href="{{route('shop',['category' => $category->id])}}"><img src="assets/img/products/product-img-1.jpg" alt=""></a>
 						</div>
 						<h3>{{$category['name']}}</h3>
 
