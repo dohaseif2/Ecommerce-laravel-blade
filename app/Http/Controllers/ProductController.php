@@ -37,7 +37,10 @@ class ProductController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $product=Product::find($id);
+        $related_products = Product::where('category_id', $product->category_id)->get();
+        
+        return view('product',['product'=>$product],['related_products'=>$related_products]);
     }
 
     /**
