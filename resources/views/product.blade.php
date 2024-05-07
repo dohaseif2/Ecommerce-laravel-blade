@@ -50,7 +50,7 @@
 		</div>
 	</div>
 	<!-- end single product -->
-
+@if (count($related_products) > 0)
 	<!-- more products -->
 	<div class="more-products mb-150">
 		<div class="container">
@@ -63,9 +63,7 @@
 				</div>
 			</div>
 			<div class="row">
-                @foreach ($related_products as $related_product)
-                @if ($related_product->id != $product->id)
-                    
+                @foreach ($related_products as $related_product)                    
                 
 				<div class="col-lg-4 col-md-6 text-center">
 					<div class="single-product-item">
@@ -77,7 +75,6 @@
 						<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
 					</div>
 				</div>
-                @endif
                 @endforeach
 
 
@@ -85,7 +82,7 @@
 		</div>
 	</div>
 	<!-- end more products -->
-
+    @endif
 	<!-- logo carousel -->
 	<div class="logo-carousel-section">
 		<div class="container">
