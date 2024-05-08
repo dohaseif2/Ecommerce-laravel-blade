@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\dashboard;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,7 @@ class ProductController extends Controller
     public function index()
     {
         $products = Product::all();
-        return view('dashboard.products/table', ['products' => $products]);
+        return view('dashboard.products.table', ['products' => $products]);
     }
 
     /**
@@ -22,7 +23,8 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+        $categories=Category::all();
+        return view('dashboard.products.create',['categories'=>$categories]);
     }
 
     /**
@@ -30,7 +32,19 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $product = new Product();
+        $product->name = $request->input('name');
+        $product->price = $request->input('price');
+        $product->description = $request->input('description');
+        $product->category_id = $request->input('category');
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $imageName = time() . '_' . $image->getClientOriginalName();
+            $image->move(public_path('images'), $imageName);
+            $product->imagepath = $imageName;
+        }
+        $product->save();
+        return redirect()->route('product.index');
     }
 
     /**
@@ -48,7 +62,8 @@ class ProductController extends Controller
     public function edit(string $id)
     {
         $product = Product::find($id);
-        return view('dashboard.products/edit', compact('product'));
+        $categories=Category::all();
+        return view('dashboard.products.edit', compact('product','categories'));
     }
 
     /**
@@ -61,6 +76,12 @@ class ProductController extends Controller
         $product->name = $request->input('name');
         $product->price = $request->input('price');
         $product->description = $request->input('description');
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $imageName = time() . '_' . $image->getClientOriginalName();
+            $image->move(public_path('images'), $imageName);
+            $product->imagepath = $imageName;
+        }
         $product->save();
         return redirect()->route('product.show', ['product' => $product->id]);
     }

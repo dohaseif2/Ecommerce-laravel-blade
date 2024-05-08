@@ -5,7 +5,7 @@
           <div class="col-md-12">
             <div class="card">
               <div class="card-header">
-                <h4 class="card-title"> Simple Table</h4>
+                <a href="{{route('product.create')}}" class="btn"> Add New Product</a>
               </div>
               <div class="card-body">
                 <div class="table-responsive">
@@ -45,7 +45,7 @@
                         {{$product->price}}
                     </td>
                     <td>
-                        <img src="{{$product->imagepath}}">
+                        <img src="{{ asset('images/'. $product->imagepath) }}">
                         
                       </td>
                     <td>

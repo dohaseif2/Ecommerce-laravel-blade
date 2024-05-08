@@ -10,7 +10,7 @@
         <div class="card-body">
           <div class="author">
             <a href="#">
-              <img class="avatar border-gray" src="{{$product->imagepath}}" alt="...">
+              <img class="avatar border-gray" src="{{ asset('images/'. $product->imagepath) }}" alt="...">
               <h5 class="title">{{$product->name}}</h5>
             </a>
             <p class="description">
