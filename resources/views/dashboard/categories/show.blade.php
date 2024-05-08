@@ -9,15 +9,15 @@
         <div class="card-body">
           <div class="author">
             <a href="#">
-              <img class="avatar border-gray" src="{{ asset('images/'. $product->imagepath) }}" alt="...">
-              <h5 class="title">{{$product->name}}</h5>
+              <img class="avatar border-gray" src="{{ asset('images/'. $category->imagePath) }}" alt="...">
+              <h5 class="title">{{$category->name}}</h5>
             </a>
             <p class="description">
-                {{$product->name}}
+                {{$category->name}}
             </p>
           </div>
           <p class="description text-center">
-            {{$product->description}}
+            {{$category->description}}
           </p>
         </div>
         <hr>

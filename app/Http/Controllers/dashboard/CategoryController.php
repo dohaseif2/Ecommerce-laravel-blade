@@ -4,20 +4,18 @@ namespace App\Http\Controllers\dashboard;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category;
-use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 
-
-class ProductController extends Controller
+class CategoryController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $products = Product::all();
-        return view('dashboard.products.table', ['products' => $products]);
+        $categories = Category::all();
+        return view('dashboard.categories.table', ['categories' => $categories]);
     }
 
     /**
@@ -25,8 +23,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        $categories=Category::all();
-        return view('dashboard.products.create',['categories'=>$categories]);
+        return view('dashboard.categories.create');
     }
 
     /**
@@ -34,19 +31,17 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        $product = new Product();
-        $product->name = $request->input('name');
-        $product->price = $request->input('price');
-        $product->description = $request->input('description');
-        $product->category_id = $request->input('category');
+        $category = new Category();
+        $category->name = $request->input('name');
+        $category->description = $request->input('description');
         if ($request->hasFile('image')) {
             $image = $request->file('image');
             $imageName = time() . '_' . $image->getClientOriginalName();
             $image->move(public_path('images'), $imageName);
-            $product->imagepath = $imageName;
+            $category->imagepath = $imageName;
         }
-        $product->save();
-        return redirect()->route('product.index');
+        $category->save();
+        return redirect()->route('category.index');
     }
 
     /**
@@ -54,8 +49,8 @@ class ProductController extends Controller
      */
     public function show(string $id)
     {
-        $product = Product::find($id);
-        return view('dashboard.products.show', ['product' => $product]);
+        $category = Category::find($id);
+        return view('dashboard.categories.show', ['category' => $category]);
     }
 
     /**
@@ -63,9 +58,8 @@ class ProductController extends Controller
      */
     public function edit(string $id)
     {
-        $product = Product::find($id);
-        $categories=Category::all();
-        return view('dashboard.products.edit', compact('product','categories'));
+        $category = Category::find($id);
+        return view('dashboard.categories.edit',["category"=>$category]);
     }
 
     /**
@@ -73,19 +67,18 @@ class ProductController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $product = Product::findOrFail($id);
+        $category = Category::findOrFail($id);
 
-        $product->name = $request->input('name');
-        $product->price = $request->input('price');
-        $product->description = $request->input('description');
+        $category->name = $request->input('name');
+        $category->description = $request->input('description');
         if ($request->hasFile('image')) {
             $image = $request->file('image');
             $imageName = time() . '_' . $image->getClientOriginalName();
             $image->move(public_path('images'), $imageName);
-            $product->imagepath = $imageName;
+            $category->imagePath = $imageName;
         }
-        $product->save();
-        return redirect()->route('product.show', ['product' => $product->id]);
+        $category->save();
+        return redirect()->route('category.show', ['category' => $category->id]);
     }
 
     /**
@@ -93,14 +86,14 @@ class ProductController extends Controller
      */
     public function destroy(string $id)
     {
-        $product = Product::find($id);
-        if ($product->imagepath) {
-            $oldPath = public_path('images/') . $product->imagepath;
+        $category = Category::find($id);
+        if ($category->imagePath) {
+            $oldPath = public_path('images/') . $category->imagePath;
             if (File::exists($oldPath)) {
                 File::delete($oldPath);
             }
         }
-        $product->delete();
-        return redirect()->route('product.index');
+        $category->delete();
+        return redirect()->route('category.index');
     }
 }

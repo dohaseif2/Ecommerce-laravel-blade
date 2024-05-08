@@ -5,7 +5,7 @@
           <div class="col-md-12">
             <div class="card">
               <div class="card-header">
-                <a href="{{route('product.create')}}" class="btn"> Add New Product</a>
+                <a href="{{route('category.create')}}" class="btn"> Add New Category</a>
               </div>
               <div class="card-body">
                 <div class="table-responsive">
@@ -18,13 +18,7 @@
                         Description
                       </th>
                       <th>
-                        Price
-                      </th>
-                      <th>
                         Image
-                      </th>
-                      <th class="text-right">
-                        Category
                       </th>
                       <th class="text-right">
                         Actions
@@ -33,32 +27,26 @@
                     <tbody>
                       
                       
-                @foreach ($products as $product )
+                @foreach ($categories as $category )
                 <tr>
                     <td>
-                      {{$product->name}}
+                      {{$category->name}}
                     </td>
                     <td>
-                        {{$product->description}}
-                    </td>
-                    <td class="text-right">
-                        {{$product->price}}
+                        {{$category->description}}
                     </td>
                     <td>
-                        <img src="{{ asset('images/'. $product->imagepath) }}" width="50" height="50"">
+                        <img src="{{ asset('images/'. $category->imagePath) }}" width="50" height="50">
                         
                       </td>
                     <td>
-                        {{$product->category_id}}
+                        <a class="btn btn-primary" href="{{route('category.show',["category"=>$category->id])}}">show</a>
                     </td>
                     <td>
-                        <a class="btn btn-primary" href="{{route('product.show',["product"=>$product->id])}}">show</a>
+                        <a class="btn btn-warning" href="{{ route('category.edit', ['category' => $category->id]) }}">edit</a>
                     </td>
                     <td>
-                        <a class="btn btn-warning" href="{{ route('product.edit', ['product' => $product->id]) }}">edit</a>
-                    </td>
-                    <td>
-                        <form action="{{ route('product.destroy', ['product' => $product->id]) }}" method="POST">
+                        <form action="{{ route('category.destroy', ['category' => $category->id]) }}" method="POST">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn btn-danger">Delete</button>
