@@ -32,20 +32,33 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @if (session('cart') )
+
+                                @if (session('cart'))
+                                    @php
+                                        $totalPrice = 0;
+                                    @endphp
                                     @foreach (session('cart') as $id => $item)
+                                        @php
+                                            $totalPrice += $item['price'] * $item['quantity'];
+                                        @endphp
                                         <tr class="table-body-row">
-                                            <td class="product-remove"><form action="{{ route('deleteFromCard', $id) }}" method="POST" style="display: inline;">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button type="submit" style="border: none; background-color: transparent;">
-                                                    <i class="far fa-window-close"></i>
-                                                </button>
-                                            </form></td>
-                                            <td class="product-image"><img src=" {{ asset('images/'. $item['image']) }}" alt=""></td>
+                                            <td class="product-remove">
+                                                <form action="{{ route('deleteFromCard', $id) }}" method="POST"
+                                                    style="display: inline;">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit"
+                                                        style="border: none; background-color: transparent;">
+                                                        <i class="far fa-window-close"></i>
+                                                    </button>
+                                                </form>
+                                            </td>
+                                            <td class="product-image"><img src=" {{ asset('images/' . $item['image']) }}"
+                                                    alt=""></td>
                                             <td class="product-name">{{ $item['name'] }}</td>
                                             <td class="product-price">${{ $item['price'] }}</td>
-                                            <td class="product-total"><input type="number" placeholder="0" value="{{ $item['quantity'] }}"></td>
+                                            <td class="product-total"><input type="number" placeholder="0"
+                                                    value="{{ $item['quantity'] }}"></td>
                                         </tr>
                                     @endforeach
                                 @endif
@@ -69,10 +82,10 @@
                             <tbody>
                                 <tr class="total-data">
                                     <td><strong>total: </strong></td>
-                                    <td>$500</td>
+                                    <td>{{$totalPrice}}</td>
                                 </tr>
-                               
-                                
+
+
                             </tbody>
                         </table>
                         <div class="cart-buttons">
