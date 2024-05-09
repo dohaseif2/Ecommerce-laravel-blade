@@ -32,11 +32,10 @@
                                 </tr>
                             </thead>
                             <tbody>
-
+                                @php
+                                    $totalPrice = 0;
+                                @endphp
                                 @if (session('cart'))
-                                    @php
-                                        $totalPrice = 0;
-                                    @endphp
                                     @foreach (session('cart') as $id => $item)
                                         @php
                                             $totalPrice += $item['price'] * $item['quantity'];
@@ -82,14 +81,14 @@
                             <tbody>
                                 <tr class="total-data">
                                     <td><strong>total: </strong></td>
-                                    <td>{{$totalPrice}}</td>
+                                    <td>{{ $totalPrice }}</td>
                                 </tr>
 
 
                             </tbody>
                         </table>
                         <div class="cart-buttons">
-                            <a href="checkout.html" class="boxed-btn black">Check Out</a>
+                            <a href="{{route('checkout')}}" class="boxed-btn black">Check Out</a>
                         </div>
                     </div>
                 </div>
