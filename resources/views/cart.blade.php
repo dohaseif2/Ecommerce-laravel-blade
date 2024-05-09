@@ -56,7 +56,7 @@
                                             <td class="product-image"><img src=" {{ asset('images/' . $item['image']) }}"
                                                     alt=""></td>
                                             <td class="product-name">{{ $item['name'] }}</td>
-                                            <td class="product-price">${{ $item['price'] }}</td>
+                                            <td class="product-price">${{ $item['price'] * $item['quantity'] }}</td>
                                             <td class="product-total"><input type="number" placeholder="0"
                                                     value="{{ $item['quantity'] }}"></td>
                                         </tr>
@@ -89,7 +89,6 @@
                             </tbody>
                         </table>
                         <div class="cart-buttons">
-                            <a href="cart.html" class="boxed-btn">Update Cart</a>
                             <a href="checkout.html" class="boxed-btn black">Check Out</a>
                         </div>
                     </div>
