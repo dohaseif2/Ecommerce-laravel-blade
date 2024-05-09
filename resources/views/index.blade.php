@@ -64,7 +64,6 @@
 							<a href="{{route('shop',['category' => $category->id])}}"><img src="{{ asset('images/'. $category->imagePath) }}" alt=""></a>
 						</div>
 						<h3>{{$category['name']}}</h3>
-
 					</div>
 				</div>
 
