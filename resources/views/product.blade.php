@@ -34,7 +34,7 @@
 							<form action="index.html">
 								<input type="number" placeholder="0">
 							</form>
-							<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
+							<a href="{{route('addToCard',$product->id)}}" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
 							<p><strong>Categories: </strong>{{$product->category_id}}</p>
 						</div>
 						<h4>Share:</h4>
@@ -72,7 +72,7 @@
 						</div>
 						<h3>{{$related_product->name}}</h3>
 						<p class="product-price"><span>Per Kg</span> {{$related_product->price}}$ </p>
-						<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
+						<a href="{{route('addToCard',$product->id)}}" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
 					</div>
 				</div>
                 @endforeach

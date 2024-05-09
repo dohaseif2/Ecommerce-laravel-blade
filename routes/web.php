@@ -9,7 +9,7 @@ use App\Http\Controllers\ProductController;
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', [CategoryController::class,'index']);
+Route::get('/', [CategoryController::class,'index'])->name('homePage');
 Route::get('/shop/{category}',[ProductController::class,'index'])->name('shop');
 Route::get('/site/product/{id}',[ProductController::class,'show'])->name('site.product.show');
 
@@ -23,4 +23,6 @@ Route::resource('/category',DashboardCategoryController::class);
 Route::resource('/order',DashboardOrderController::class);
 
 
+Auth::routes();
 
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

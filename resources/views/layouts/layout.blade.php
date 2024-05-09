@@ -59,36 +59,16 @@
 						<!-- menu start -->
 						<nav class="main-menu">
 							<ul>
-								<li class="current-list-item"><a href="#">Home</a>
-									<ul class="sub-menu">
-										<li><a href="index.html">Static Home</a></li>
-										<li><a href="index_2.html">Slider Home</a></li>
-									</ul>
+								<li class="current-list-item"><a href="{{route('homePage')}}">Home</a>
+						
 								</li>
-								<li><a href="about.html">About</a></li>
-								<li><a href="#">Pages</a>
-									<ul class="sub-menu">
-										<li><a href="404.html">404 page</a></li>
-										<li><a href="about.html">About</a></li>
-										<li><a href="{{route('cart')}}">Cart</a></li>
-										<li><a href="checkout.html">Check Out</a></li>
-										<li><a href="contact.html">Contact</a></li>
-										<li><a href="news.html">News</a></li>
-										<li><a href="shop.html">Shop</a></li>
-									</ul>
-								</li>
-								<li><a href="news.html">News</a>
-									<ul class="sub-menu">
-										<li><a href="news.html">News</a></li>
-										<li><a href="single-news.html">Single News</a></li>
-									</ul>
-								</li>
+								<li><a href="">About</a></li>
+								
+								
 								<li><a href="contact.html">Contact</a></li>
-								<li><a href="shop.html">Shop</a>
+								<li><a href="{{route('homePage')}}">Shop</a>
 									<ul class="sub-menu">
-										<li><a href="shop.html">Shop</a></li>
-										<li><a href="checkout.html">Check Out</a></li>
-										<li><a href="single-product.html">Single Product</a></li>
+										<li><a href="{{route('homePage')}}">Shop</a></li>
 										<li><a href="{{route('cart')}}">Cart</a></li>
 									</ul>
 								</li>
@@ -96,11 +76,23 @@
 									<div class="header-icons">
 										<a class="shopping-cart" href="{{route('cart')}}"><i class="fas fa-shopping-cart">{{ count((array) session('cart')) }}</i></a>
 										<a class="mobile-hide search-bar-icon" href="#"><i class="fas fa-search"></i></a>
+                                       
+                                       
+                                        @if (Auth::check())
+                                        <a class="" href="">{{Auth::user()->name}}</i></a>
+
+                                        @else
+                                        <a class="" href="{{ route('login') }}">Login</i></a>
+
+                                        @endif
 									</div>
+                                   
 								</li>
+                                
 							</ul>
 						</nav>
 						<a class="mobile-show search-bar-icon" href="#"><i class="fas fa-search"></i></a>
+                        
 						<div class="mobile-menu"></div>
 						<!-- menu end -->
 					</div>
@@ -127,6 +119,7 @@
 			</div>
 		</div>
 	</div>
+    
 	<!-- end search area -->
 
 	<!-- home page slider -->

@@ -33,7 +33,7 @@ class CardController extends Controller
             ];
         }
         session()->put('cart', $cart);
-        return redirect()->back()->with('success', 'Book has been added to cart!');
+        return redirect()->route('cart');
     }
 
     public function delete(Request $request)
