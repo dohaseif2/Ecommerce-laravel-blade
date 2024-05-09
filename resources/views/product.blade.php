@@ -22,7 +22,7 @@
 			<div class="row">
 				<div class="col-md-5">
 					<div class="single-product-img">
-						<img src="{{asset('assets/img/products/product-img-5.jpg')}}" alt="">
+						<img src="{{ asset('images/'. $product->imagepath) }}" alt="">
 					</div>
 				</div>
 				<div class="col-md-7">
@@ -68,7 +68,7 @@
 				<div class="col-lg-4 col-md-6 text-center">
 					<div class="single-product-item">
 						<div class="product-image">
-							<a href="{{route('site.product.show',$related_product->id)}}"><img src="{{asset('assets/img/products/product-img-1.jpg')}}" alt=""></a>
+							<a href="{{route('site.product.show',$related_product->id)}}"><img src="{{ asset('images/'. $product->imagepath) }}" alt=""></a>
 						</div>
 						<h3>{{$related_product->name}}</h3>
 						<p class="product-price"><span>Per Kg</span> {{$related_product->price}}$ </p>

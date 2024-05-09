@@ -38,7 +38,7 @@
 					<div class="col-lg-4 col-md-6 text-center strawberry">
 						<div class="single-product-item">
 							<div class="product-image">
-								<a href="{{route('site.product.show',$product->id)}}"><img src="{{asset('assets/img/products/product-img-6.jpg')}}" alt=""></a>
+								<a href="{{route('site.product.show',$product->id)}}"><img src="{{ asset('images/'. $product->imagepath) }}" alt=""></a>
 							</div>
 							<h3>{{$product['name']}}</h3>
 							<p class="product-price"><span>Per Kg</span> {{$product['price']}}$ </p>

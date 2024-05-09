@@ -61,7 +61,13 @@
           <li>
             <a href="{{route('category.index')}}">
               <i class="now-ui-icons design_app"></i>
-              <p>Category</p>
+              <p>Categories</p>
+            </a>
+          </li>
+          <li>
+            <a href="{{route('order.index')}}">
+              <i class="now-ui-icons design_app"></i>
+              <p>Orders</p>
             </a>
           </li>
         </ul>
