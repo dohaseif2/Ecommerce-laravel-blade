@@ -60,6 +60,11 @@
                                                     value="{{ $item['quantity'] }}"></td>
                                         </tr>
                                     @endforeach
+                                    @else
+                                        <tr>
+                                            <td colspan="5">Your Card is empty</td>
+                                        </tr>
+                                    
                                 @endif
 
 
@@ -88,7 +93,10 @@
                             </tbody>
                         </table>
                         <div class="cart-buttons">
-                            <a href="{{route('checkout')}}" class="boxed-btn black">Check Out</a>
+                           
+                            @if (!empty(session('cart')))
+                            <a href="{{route('checkout')}}"  class="boxed-btn black" >Check Out</a>
+                            @endif
                         </div>
                     </div>
                 </div>
