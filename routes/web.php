@@ -4,7 +4,7 @@ use App\Http\Controllers\CardController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\dashboard\ProductController as DashboardProductController;
 use App\Http\Controllers\dashboard\CategoryController as DashboardCategoryController;
-use App\Http\Controllers\dashboard\CategoryController as DashboardOrderController;
+use App\Http\Controllers\dashboard\OrderController as DashboardOrderController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
 

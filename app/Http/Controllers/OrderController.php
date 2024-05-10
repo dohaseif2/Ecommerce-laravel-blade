@@ -22,6 +22,7 @@ class OrderController extends Controller
         $order->address = $request->input('address');
         $order->phone = $request->input('phone');
         $order->user_id = Auth::id();
+        $order->status=false;
         $order->save();
 
         $cart = session('cart');

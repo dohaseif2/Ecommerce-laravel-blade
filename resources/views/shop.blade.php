@@ -6,7 +6,7 @@
             <div class="row">
                 <div class="col-lg-8 offset-lg-2 text-center">
                     <div class="breadcrumb-text">
-                        <p>Fresh and Organic</p>
+                        <p>Original Products</p>
                         <h1>Shop</h1>
                     </div>
                 </div>
@@ -38,7 +38,7 @@
                         <div class="single-product-item">
                             <div class="product-image">
                                 <a href="{{ route('site.product.show', $product->id) }}"><img
-                                        src="{{ asset('images/' . $product->imagepath) }}" alt=""></a>
+                                        src="{{ asset('images/' . $product->imagepath) }}" alt="" width="100" height="250"></a>
                             </div>
                             <h3>{{ $product['name'] }}</h3>
                             <p class="product-price"><span>Per Kg</span> {{ $product['price'] }}$ </p>

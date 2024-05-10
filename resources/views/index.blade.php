@@ -120,7 +120,7 @@
                 <div class="col-lg-4 col-md-6 text-center">
 					<div class="single-product-item">
 						<div class="product-image">
-							<a href="{{route('shop',['category' => $category->id])}}"><img src="{{ asset('images/'. $category->imagePath) }}" alt=""></a>
+							<a href="{{route('shop',['category' => $category->id])}}"><img src="{{ asset('images/'. $category->imagePath) }}" alt="" width="100" height="250"></a>
 						</div>
 						<h3>{{$category['name']}}</h3>
 					</div>

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\dashboard;
 
 use App\Http\Controllers\Controller;
+use App\Models\Order;
+use App\Models\OrderProduct;
 use Illuminate\Http\Request;
 
 class OrderController extends Controller
@@ -12,7 +14,8 @@ class OrderController extends Controller
      */
     public function index()
     {
-        //
+        $orders=Order::all();
+        return view('dashboard.orders.table',['orders'=>$orders]);
     }
 
     /**
@@ -36,7 +39,8 @@ class OrderController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $products = OrderProduct::where('order_id',$id)->get();
+        return view('dashboard.orders.show', ['products' => $products]);
     }
 
     /**
@@ -44,7 +48,11 @@ class OrderController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $order = Order::find($id);
+        $order->status=true;
+        $order->save();
+        $orders=Order::all();
+        return view('dashboard.orders.table',compact('orders'));
     }
 
     /**
@@ -60,6 +68,8 @@ class OrderController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $order = Order::find($id);
+        $order->delete();
+        return redirect()->route('order.index');
     }
 }
