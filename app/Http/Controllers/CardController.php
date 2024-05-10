@@ -34,7 +34,7 @@ class CardController extends Controller
             ];
         }
         session()->put('cart', $cart);
-        return redirect()->route('cart');
+        return redirect()->route('products');
     }
 
     public function delete(Request $request)
