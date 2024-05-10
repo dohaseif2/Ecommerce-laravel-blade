@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreOrderRequest;
 use App\Models\Order;
 use App\Models\OrderProduct;
 use Illuminate\Http\Request;
@@ -15,7 +16,7 @@ class OrderController extends Controller
         return view('checkout');
     }
 
-    public function store(Request $request)
+    public function store(StoreOrderRequest $request)
     {
         $order = new Order();
         $order->total_price = $request->input('total_price');
