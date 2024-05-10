@@ -32,7 +32,7 @@
                 @foreach ($orders as $order )
                 <tr>
                     <td>
-                      {{$order->user_id}}
+                      {{$order->user->name}}
                     </td>
                     <td>
                         {{$order->total_price}}

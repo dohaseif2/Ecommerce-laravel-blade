@@ -35,7 +35,7 @@
 								<input type="number" placeholder="0">
 							</form>
 							<a href="{{route('addToCard',$product->id)}}" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
-							<p><strong>Categories: </strong>{{$product->category_id}}</p>
+							<p><strong>Categories: </strong>{{$product->category->name}}</p>
 						</div>
 						<h4>Share:</h4>
 						<ul class="product-share">

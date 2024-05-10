@@ -85,6 +85,8 @@ class ProductController extends Controller
             $image->move(public_path('images'), $imageName);
             $product->imagepath = $imageName;
         }
+        $product->category_id = $request->input('category');
+
         $product->save();
         return redirect()->route('product.show', ['product' => $product->id]);
     }
