@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Middleware\AdminRoleCheck;
 use App\Http\Middleware\RoleCheck;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
@@ -13,8 +14,11 @@ return Application::configure(basePath: dirname(__DIR__))
     )
     ->withMiddleware(function (Middleware $middleware) {
         $middleware->alias([
+            'adminRoleCheck' => AdminRoleCheck::class,
             'roleCheck' => RoleCheck::class
         ]);
+       
+        
     })
     ->withExceptions(function (Exceptions $exceptions) {
         //
