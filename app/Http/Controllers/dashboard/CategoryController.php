@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\dashboard;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\EditCategoryRequest;
 use App\Http\Requests\StoreCategoryRequest;
 use App\Models\Category;
 use Illuminate\Http\Request;
@@ -66,7 +67,7 @@ class CategoryController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(EditCategoryRequest $request, string $id)
     {
         $category = Category::findOrFail($id);
 

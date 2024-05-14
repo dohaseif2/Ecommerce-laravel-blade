@@ -79,8 +79,10 @@
                                        
                                        
                                         @if (Auth::check())
-                                        <a class="" href="">{{Auth::user()->name}}</i></a>
-
+                                        <a class="" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                            @csrf
+                                        </form>
                                         @else
                                         <a class="" href="{{ route('login') }}">Login</i></a>
 

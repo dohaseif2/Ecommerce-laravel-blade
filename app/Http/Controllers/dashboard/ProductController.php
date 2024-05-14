@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\dashboard;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\EditProductRequest;
 use App\Http\Requests\StoreProductRequest;
 use App\Models\Category;
 use App\Models\Product;
@@ -72,7 +73,7 @@ class ProductController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(EditProductRequest $request, string $id)
     {
         $product = Product::findOrFail($id);
 
