@@ -20,5 +20,29 @@ Access control to ensure only authorized users can access specific parts of the 
 <h4>Frontend:</h4> Blade templates
 <h4>Authentication:</h4> Laravel ui built-in authentication with roles
 
+## Installation
+<h4>Clone the repository:</h4>
+git clone https://github.com/yourusername/e-commerce-platform.git
+cd e-commerce-platform
+
+<h4>Install dependencies:</h4>
+composer install
+npm install
+
+<h4>Set up environment variables (.env)</h4>
+
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=ecommerce
+DB_USERNAME=root
+DB_PASSWORD=your_password
+
+<h4>Run migrations:</h4>
+php artisan migrate
+
+<h4>Run the development server:</h4>
+php artisan serve
+
 ## License
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
