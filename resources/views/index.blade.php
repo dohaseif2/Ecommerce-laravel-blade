@@ -57,7 +57,7 @@
         </div>
     </div>
 </div>
-@extends('layouts.layout')
+@extends('layouts.website.layout')
 @section('content')
 	<!-- features list section -->
 	<div class="list-section pt-80 pb-80">

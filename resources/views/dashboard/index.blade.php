@@ -1,4 +1,4 @@
-@extends('../layouts/dash_layout')
+@extends('../layouts/dashboard/dash_layout')
 @section('content')
       <div class="panel-header panel-header-sm">
       </div>

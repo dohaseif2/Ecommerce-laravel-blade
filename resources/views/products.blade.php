@@ -1,4 +1,4 @@
-@extends('layouts.layout')
+@extends('layouts.website.layout')
 @section('content')
     <!-- breadcrumb-section -->
     <div class="breadcrumb-section breadcrumb-bg">
